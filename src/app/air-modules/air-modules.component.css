@@ -1,0 +1,31 @@
+.produto:hover {
+    cursor: pointer
+}
+
+.product {
+    margin: auto;
+    justify-content: space-between;
+}
+
+.slider{
+    align-items: center;
+    align-content: center;
+    height: 30vh;
+}
+
+.page{
+    width: 70%;
+    margin-left: 15%;
+    justify-content: space-between;
+}
+
+.item {
+    background-color: white;
+    box-shadow: 0 0.5px 6px grey;
+    width: 25%;
+    border-radius: 20px;
+}
+
+.item:hover{
+    box-shadow: 0 0.5px 6px blue;
+}

@@ -1,0 +1,33 @@
+.containerAll {
+    height: 100vh;
+    width: 100vw;
+}
+
+.header {
+    height: 10vh;
+    background-color: white;
+}
+.img{
+    height: 10vh;
+}
+
+.dash {
+    height: 90vh;
+    width: 100%;
+    overflow-y: scroll;
+    background-color: #c3c3c3;
+}
+
+.data {
+    margin-top: 50px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.info {
+    width: 95%;
+    margin:auto;
+    margin-top:20px;
+    padding: 0%;
+}

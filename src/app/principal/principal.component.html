@@ -1,0 +1,54 @@
+<div class="container-fluid">
+    <div class="row containerAll">
+        <div class="header col-12">
+            <div class="row">
+                <img src="assets/imagens/logo.png" class="p-3 img">
+            </div>
+        </div>
+        <div class="dash">
+            <div class="data">
+                <air-modules></air-modules>
+            </div>
+            <div class="info">
+                <div class="row mt-4">
+                    <div class='col-12'>Postos da linha <span class="font-weight-bold">{{servico.linha}}</span>:</div>
+                    <div class="d-flex ml-3 mr-3" *ngFor="let posto of servico.postoPorLinha$ | async">
+                        <div>
+                            <div class="bd-highlight p-2 mr-1 mt-2"
+                                [ngClass]="{'bg-primary': posto.avg_fimreal_fimplan > 0, 'bg-danger': posto.avg_fimreal_fimplan < 0, 'bg-success': posto.avg_fimreal_fimplan == 0}">
+                                {{posto.posto}}</div>
+                            <div>Média: {{posto.avg_fimreal_fimplan}}</div>
+                            <div>Total: {{posto.sum_fimreal_fimplan}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="form-group ml-3">
+                        <label>Ranges da linha <span class="font-weight-bold">{{servico.linha}}</span>:</label>
+                        <select class="form-control" (change)="servico.getLinhaRangeGroupByPosto($event.target.value)">
+                            <option></option>
+                            <option *ngFor="let range of servico.rangePorLinha$ | async">{{range.range}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-4" *ngIf="servico.range != ''">
+                    <div class='col-12'>Postos da linha <span class="font-weight-bold">{{servico.linha}}</span> e range
+                        <span class="font-weight-bold">{{servico.range}}</span>:</div>
+                    <div class="d-flex ml-3 mr-3" *ngFor="let posto of servico.postoPorLinhaRange$ | async">
+                        <div>
+                            <div class="bd-highlight p-2 mr-1 mt-2"
+                                [ngClass]="{'bg-primary': posto.avg_fimreal_fimplan > 0, 'bg-danger': posto.avg_fimreal_fimplan < 0, 'bg-success': posto.avg_fimreal_fimplan == 0}">
+                                {{posto.posto}}</div>
+                            <div>Média: {{posto.avg_fimreal_fimplan}}</div>
+                            <div>Total: {{posto.sum_fimreal_fimplan}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="data">
+                
+            </div> -->
+        </div>
+    </div>
+</div>
